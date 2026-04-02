@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2>Let's<br><em>connect</em></h2>
+      <p>{% if contact_info %}{{ contact_info.intro_text }}{% else %}Whether you have a project in mind, want to collaborate, or just want to say hello — I'd love to hear from you.{% endif %}</p>
+      <div class="social-links">
+        {% if contact_info %}
+          {% if contact_info.linkedin_url %}
+          <a href="{{ contact_info.linkedin_url }}" class="social-link" target="_blank" rel="noopener">
+            <div class="social-icon">in</div><span>LinkedIn</span>
+          </a>
+          {% endif %}
+          {% if contact_info.github_url %}
+          <a href="{{ contact_info.github_url }}" class="social-link" target="_blank" rel="noopener">
+            <div class="social-icon">gh</div><span>GitHub</span>
+          </a>
+          {% endif %}
+          {% if contact_info.instagram_url %}
+          <a href="{{ contact_info.instagram_url }}" class="social-link" target="_blank" rel="noopener">
+            <div class="social-icon">ig</div><span>Instagram</span>
+          </a>
+          {% endif %}
+          {% if contact_info.email %}
+          <a href="mailto:{{ contact_info.email }}" class="social-link">
+            <div class="social-icon">✉</div><span>{{ contact_info.email }}</span>
+          </a>
+          {% endif %}
+        {% else %}
+          <a href="#" class="social-link"><div class="social-icon">in</div><span>LinkedIn</span></a>
+          <a href="#" class="social-link"><div class="social-icon">gh</div><span>GitHub</span></a>
+          <a href="#" class="social-link"><div class="social-icon">✉</div><span>your@email.com</span></a>
+        {% endif %}
+      </div>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your project..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>Rosalinda Ib-ib — Portfolio 2025</p>
+</footer>
+
+{% endblock %}

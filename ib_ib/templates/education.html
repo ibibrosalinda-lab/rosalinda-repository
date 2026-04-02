@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- EDUCATION SECTION -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="edu-timeline">
+    {% if educations %}
+      {% for edu in educations %}
+      <div class="edu-item">
+        <div class="edu-year">{{ edu.year_display }}</div>
+        <div class="edu-degree">{{ edu.degree }}</div>
+        <div class="edu-school">{{ edu.school }}</div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

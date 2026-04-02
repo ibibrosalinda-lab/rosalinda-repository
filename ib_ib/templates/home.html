@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- HOME HERO -->
+<section id="home">
+  <div class="hero-decoration"></div>
+  <div class="hero-inner">
+    <div class="hero-text fade-in">
+      <span class="section-label">Portfolio — 2025</span>
+      <h1>Rosalinda<br><em>Ib-ib</em></h1>
+      <p class="hero-tagline">
+        {% if hero %}{{ hero.tagline }}{% else %}Aspiring developer & creative technologist — learning today, building tomorrow.{% endif %}
+      </p>
+      <a href="{% if hero %}{{ hero.cta_link }}{% else %}/projects/{% endif %}" class="hero-cta">
+        {% if hero %}{{ hero.cta_text }}{% else %}View My Work{% endif %}
+      </a>
+    </div>
+    <div class="photo-frame fade-in" style="transition-delay:0.2s">
+      {% if hero and hero.profile_image %}
+        <img src="{{ hero.profile_image.url }}" alt="Rosalinda Ib-ib" class="profile-photo">
+      {% else %}
+        <img src="{% static 'images/profile.png' %}" alt="Rosalinda Ib-ib" class="profile-photo">
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <span class="section-label">About</span>
+      <h2>Rosalinda P. Ib-ib</h2>
+      {% if hero %}
+        <p>{{ hero.bio_paragraph1 }}</p>
+        {% if hero.bio_paragraph2 %}<p>{{ hero.bio_paragraph2 }}</p>{% endif %}
+      {% else %}
+        <p>I'm an aspiring full-stack developer passionate about building meaningful digital experiences.</p>
+      {% endif %}
+    </div>
+    <div class="about-goals">
+      <h3>What drives me —</h3>
+      {% if goals %}
+        {% for goal in goals %}
+        <div class="goal-item">
+          <div class="goal-dot"></div>
+          <p>{{ goal.text }}</p>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="goal-item"><div class="goal-dot"></div><p>Crafting interfaces that feel intuitive and powerful.</p></div>
+        <div class="goal-item"><div class="goal-dot"></div><p>Solving problems with clean, maintainable code.</p></div>
+        <div class="goal-item"><div class="goal-dot"></div><p>Learning daily — currently mastering Django and Python.</p></div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

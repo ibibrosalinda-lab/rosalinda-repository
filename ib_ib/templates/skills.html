@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- SKILLS SECTION -->
+<section id="skills">
+  <div class="skills-header">
+    <h2>Skills & Tools</h2>
+    <span class="section-label">— constantly evolving</span>
+  </div>
+  <div class="skills-grid">
+    {% if categories %}
+      {% for category in categories %}
+      <div class="skill-category">
+        <h3>{{ category.name }}</h3>
+        <div class="skill-list">
+          {% for skill in category.skills.all %}
+          <div class="skill-item">
+            <div class="skill-info">
+              {% if skill.icon %}
+                <i class="{{ skill.icon }}"></i>
+              {% endif %}
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="proficiency-badge proficiency-{{ skill.proficiency }}">
+                {{ skill.get_proficiency_display }}
+              </span>
+              {% if skill.years_of_experience %}
+                <span class="experience-years">
+                  {{ skill.years_of_experience }} years
+                </span>
+              {% endif %}
+            </div>
+            <div class="skill-bar-container">
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: {{ skill.level }}%"></div>
+              </div>
+              <span class="skill-level">{{ skill.level }}%</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

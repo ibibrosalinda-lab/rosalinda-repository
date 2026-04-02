@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <span class="section-label">About</span>
+      <h2>Rosalinda P. Ib-ib</h2>
+      {% if hero %}
+        {% if hero.bio_paragraph1 %}
+          <p>{{ hero.bio_paragraph1 }}</p>
+        {% endif %}
+        {% if hero.bio_paragraph2 %}
+          <p>{{ hero.bio_paragraph2 }}</p>
+        {% endif %}
+        {% endif %}
+    </div>
+    <div class="about-goals">
+      <h3>What drives me —</h3>
+      {% if goals %}
+        {% for goal in goals %}
+        <div class="goal-item">
+          <div class="goal-dot"></div>
+          <p>{{ goal.text }}</p>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

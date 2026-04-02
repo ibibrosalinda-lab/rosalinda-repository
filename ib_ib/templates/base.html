@@ -1,0 +1,42 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Rosalinda Ib-ib</a>
+
+  <!-- Hamburger button (mobile only) -->
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/skills/">Skills</a></li>
+    <li><a href="/projects/">Projects</a></li>
+    <li><a href="/education/">Education</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- MAIN CONTENT -->
+{% block content %}
+{% endblock %}
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
